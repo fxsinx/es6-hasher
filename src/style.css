@@ -1,0 +1,192 @@
+/* Clear */
+
+body {
+    font-size: 100%;
+    background: #f1f1f1;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 0;
+}
+h1, h2, h3, h4, h5, h6, form, ul, ol, section, nav, sidebar, figure {
+    padding: 0;
+    margin: 0;
+}
+a {
+    color: #0D94FF;
+    text-decoration: none;
+}
+a:hover {
+    color: #0075D2;
+    text-decoration: underline;
+}
+code, blockquote, pre, .code {
+    font-family: 'Source code pro', 'fira mono', inconsolata, menlo, courier, monospace;
+}
+.code-spec {
+    color: #1F8DFF;
+}
+.main {
+    border-radius: 10px;
+    margin: 70px auto;
+    width: 100%;
+    max-width: 960px;
+    background: #FFF;
+    box-shadow: 0 1px 8px rgba(136, 136, 136, 0.1);
+    overflow: hidden;
+    text-align: center;
+    text-shadow: 0 0 1px #fff;
+}
+.project-title {
+    font-weight: 300;
+    padding: 30px;
+    font-size: 26px;
+    position: relative;
+    color: #444;
+    border-bottom: 1px solid #eee;
+}
+.descript {
+    font-size: 20px;
+    padding: 50px;
+    color: #666;
+    text-align: left;
+    line-height: 30px;
+}
+section {
+    background: #FFF;
+    counter-increment: i;
+    border-bottom: 1px solid #eee;
+    padding: 30px 0;
+    transition: all .2s;
+}
+section:hover {
+    background: #fafafa;
+    transition: all .2s;
+}
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #666;
+    margin: 30px;
+}
+.title::before {
+    content: '#'counter(i);
+    margin-right: 10px;
+    color: #999;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all .2s;
+}
+.project-title .logo {
+    text-indent: -9999px;
+    font-size: 0;
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-image: url('github-icon.png');
+    background-repeat: no-repeat;
+    background-size: 50px;
+    background-position: center center;
+}
+section:hover .title::before {
+    color: #FFF;
+    background-color: #444;
+    transition: all .2s;
+}
+code {
+    position: relative;
+    display: inline-block;
+    margin: 10px auto;
+    padding: 30px;
+    font-size: 20px;
+    color: #000;
+    border-radius: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    transition: all .2s;
+    background: #fafafa;
+    border: 1px solid #fafafa;
+}
+code::after {
+    display: none;
+    content: "Try it";
+    position: absolute;
+    font-size: 12px;
+    color: green;
+    left: 100%;
+    margin-left: 10px;
+    white-space: nowrap;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+section:hover code {
+    border: 1px solid #ddd;
+}
+code:hover {
+    color: #1F8DFF;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
+    transition: all .2s;
+}
+code:hover::after {
+    display: block;
+}
+code:active, section:hover code:active {
+    background: linear-gradient(to bottom, #f1f1f1, #fafafa);
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
+}
+.code {
+    font-size: 0.8em;
+    color: #888;
+}
+.xor {
+    font-size: 20px;
+    color: #666;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+.section-footer {
+    font-weight: 300;
+    font-size: 12px;
+    color: #999;
+    letter-spacing: 0.5px;
+    padding: 0 20px;
+    margin: 30px;
+    text-shadow: 0 0 1px #FFF;
+}
+.red-bar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: red;
+    height: 5px;
+    width: 100%;
+    z-index: 999;
+}
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+.blink {
+    animation: 0.5s blink;
+}
+.text-center {
+    text-align: center;
+}

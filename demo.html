@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi"/>
+        <title>ES6-hasher Demo</title>
+        <link rel="stylesheet" href="./src/style.css" media="screen" type="text/css" charset="utf-8">
+        <script src="./dist/babel.es5-hasher.min.js" charset="utf-8"></script>
+    </head>
+    <body>
+
+        <div class="main">
+            <h1 class="project-title">
+                ECMAScript 6 Hasher Plugin
+                <a href="https://github.com/fxsinx/es6-hasher" target="_blank">
+                    <i class="logo">Fork on Github</i>
+                </a>
+            </h1>
+            <p class="descript">
+                <span class="code">es6-hasher</span>
+                is a plugin written in ECMAScript 6, which provides you a convenient way to store and manage key-value pairs in the URL hash.
+            </p>
+            <p class="descript">
+                <span class="code">es6-hasher</span>
+                can be translated to ECMAScript 5 scripts (by <a href="http://babeljs.io" target="_blank">babel</a>) working with most modern brwosers.
+            </p>
+        </div>
+
+        <div class="main actions">
+            <h1 class="project-title">Functionalities &amp; Examples</h1>
+            <section>
+                <h3 class="title">Suppose you already have an prefix hash
+                    <span class="code">'oldhash'</span>
+                </h3>
+                <code>window.location.hash = 'oldhash';</code>
+                <p class="descript text-center">
+                    It's gonna remain its value during all actions.
+                </p>
+            </section>
+
+            <section>
+                <h3 class="title">(Configuration) Prefer
+                    <span class="code">replaceState</span>
+                    or
+                    <span class="code">pushState</span>
+                    ?</h3>
+                <code>hasher.config({preferReplaceState: true});</code>
+                <p class="xor">or</p>
+                <code>hasher.config({preferReplaceState: false});</code>
+                <p class="descript text-center">
+                    You can change this setting at any time.
+                </p>
+            </section>
+
+            <section>
+                <h3 class="title">Write
+                    <span class="code">a=valA</span>
+                    to hash</h3>
+                <code>hasher('a', 'valA');</code>
+            </section>
+
+            <section>
+                <h3 class="title">Write
+                    <span class="code">b=valB</span>
+                    to hash</h3>
+                <code>hasher('b', 'valB');</code>
+            </section>
+
+            <section>
+                <h3 class="title">Change key
+                    <span class="code">'a'</span>
+                    value to
+                    <span class="code">'changedValA'</span>
+                </h3>
+                <code>hasher('a', 'changedValA');</code>
+            </section>
+
+            <section>
+                <h3 class="title">Write object
+                    <span class="code">{y:'valY', c:'valC'}</span>
+                    to hash</h3>
+                <code>hasher({y:'valY', c:'valC'});</code>
+            </section>
+
+            <section>
+                <h3 class="title">Write empty key
+                    <span class="code">'empty-key'</span>
+                    to hash</h3>
+                <code>hasher('empty-key', '');</code>
+            </section>
+
+            <section>
+                <h3 class="title">Get the value of key
+                    <span class="code">'a'</span>
+                </h3>
+                <code>alert( hasher('a') );</code>
+            </section>
+
+            <section>
+                <h3 class="title">Remove the key
+                    <span class="code">'b'</span>
+                </h3>
+                <code>hasher('b', null);</code>
+            </section>
+
+            <section>
+                <h3 class="title">Sort hash by keys</h3>
+                <code>hasher( hasher.symbol.sortByKeys );</code>
+                <p class="xor">or</p>
+                <code>hasher.sortByKeys();</code>
+            </section>
+
+            <section>
+                <h3 class="title">Replace old hash with
+                    <span class="code">'happyhash'</span>
+                </h3>
+                <code>hasher( hasher.symbol.replacePrefixHash, 'happyhash' );</code>
+                <p class="xor">or</p>
+                <code>hasher.replacePrefixHash('happyhash');</code>
+            </section>
+
+            <section>
+                <h3 class="title">Get current prefix hash
+                </h3>
+                <code>alert( hasher( hasher.symbol.prefixHash ) );</code>
+                <p class="xor">or</p>
+                <code>alert( hasher.prefixHash() );</code>
+            </section>
+
+            <section>
+                <h3 class="title">Remove all empty keys in hash</h3>
+                <code>hasher( hasher.symbol.removeEmptyKeys );</code>
+                <p class="xor">or</p>
+                <code>hasher.removeEmptyKeys();</code>
+            </section>
+
+            <section>
+                <h3 class="title">Get all key-value pairs as an object</h3>
+                <code>alert( hasher() )</code>
+            </section>
+
+            <section>
+                <h3 class="title">Clean all keys</h3>
+                <code>hasher( hasher.symbol.clean );</code>
+                <p class="xor">or</p>
+                <code>hasher.clean();</code>
+            </section>
+
+
+            <section>
+                <h3 class="title">Clear everything in hash</h3>
+                <code>hasher( hasher.symbol.clear );</code>
+                <p class="xor">or</p>
+                <code>hasher.clear();</code>
+            </section>
+
+            <p class="section-footer">
+                By
+                <a href="https://github.com/fxsinx/es6-hasher" target="_blank">Github/@fxsinx</a>.
+            </p>
+        </div>
+
+        <i class="red-bar"></i>
+
+        <script type="text/javascript">
+            (function(){
+                if (window.location.hash)
+                    window.location.hash = '';
+
+                var actsDiv = document.querySelector('.actions');
+                actsDiv.addEventListener('click', function(e) {
+                    if (e.target.matches('code')) {
+                        eval(e.target.innerText);
+                        var redBar = document.querySelector('.red-bar');
+                        redBar.classList.remove('blink');
+                        setTimeout(function(){ redBar.classList.add('blink'); }, 100);
+                    }
+                }, false);
+            })();
+        </script>
+
+    </body>
+</html>
