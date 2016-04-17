@@ -10,3 +10,10 @@ gulp.task('uglify', () => {
         .pipe(rename({suffix:'.min', prefix:'babel.', basename: "es5-hasher"}))
         .pipe(gulp.dest('./dist'));
 });
+
+gulp.task('es5', () => {
+    gulp.src('./es6-hasher.js')
+        .pipe(babel())
+        .pipe(rename({prefix:'babel.', basename: "es5-hasher"}))
+        .pipe(gulp.dest('./dist'));
+});
