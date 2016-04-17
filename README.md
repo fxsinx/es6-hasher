@@ -22,7 +22,7 @@ It can be translated by babel into ECMAScript 5 scripts, working with most moder
 
 ## Usage
 ### Config
-You can determine the plugin working mode.
+You can determine the plugin's working mode.
 
 ```javascript
 hasher.config({
